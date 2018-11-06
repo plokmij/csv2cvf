@@ -10,13 +10,17 @@ else:
 		output = open(sys.argv[2], "w")
 
 	names = ["samfan","nrhhsiae","random"]
-	for name in names:
-		i= 0
+	numbers = []
+	for line in csv:
+		numbers.append( line )
+	i = 0
+	for number in numbers:
+		i = i + 1
 		output.write( """BEGIN:VCARD
 VERSION:3.0
-N:"""+ name +""";Test
-FN:hELL"""+ name  +"""
-TEL;TYPE=CELL:122"""+ str( i ) + """
-EMAIL;TYPE=INTERNET:rgm-ietf@htt-consult.com
+N:"""+ str(i) +""";FRomPC
+FN:hELL"""+ str(i)  +"""
+TEL;TYPE=CELL:+91"""+ number[:10] +"""
 END:VCARD\n""" )
+		print(i)
 		i += 1
